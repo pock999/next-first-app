@@ -4,7 +4,9 @@ import {
   all, fork, put, takeLatest, call, select, take, takeEvery,
 } from 'redux-saga/effects';
 
-import createAsyncSaga from '../createAsyncSaga';
+import {
+  createLatestSaga,
+} from '../createAsyncSaga';
 import axios from 'axios';
 
 import { showMessage } from '../MessageStore';
@@ -29,7 +31,7 @@ const slice = createSlice({
 
 const { setAnime } = slice.actions;
 
-const fetchAction = createAsyncSaga('TEST_SAGA/FETCH', function* ({ payload }) {
+const fetchAction = createLatestSaga('TEST_SAGA/FETCH', function* ({ payload }) {
   const handleApi = async () => {
     const response = await axios.get('https://animechan.vercel.app/api/random');
     return response.data;

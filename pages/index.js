@@ -6,7 +6,7 @@ import React from 'react';
 import { wrapperRedux, reducerActions, sagaActions } from '../redux/store';
 const Home = (props) => {
 
-  console.log('propssss => ', props);
+  console.log('props => ', props);
 
   return (
     <div className={styles.container}>
